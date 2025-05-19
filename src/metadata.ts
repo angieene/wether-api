@@ -1,0 +1,7 @@
+/* eslint-disable */
+export default async () => {
+    const t = {
+        ["./subscription/entities/subscription.entity"]: await import("./subscription/entities/subscription.entity")
+    };
+    return { "@nestjs/swagger": { "models": [[import("./subscription/entities/subscription.entity"), { "Subscription": { id: { required: true, type: () => Number }, email: { required: true, type: () => String }, city: { required: true, type: () => String }, frequency: { required: true, enum: t["./subscription/entities/subscription.entity"].Frequency }, confirmed: { required: true, type: () => Boolean }, token: { required: true, type: () => String }, createdAt: { required: true, type: () => Date }, updatedAt: { required: true, type: () => Date } } }], [import("./subscription/dto/create-subscription.dto"), { "CreateSubscriptionDto": { email: { required: true, type: () => String, format: "email" }, city: { required: true, type: () => String }, frequency: { required: true, enum: t["./subscription/entities/subscription.entity"].Frequency } } }], [import("./wether/dto/get-wether.dto"), { "GetWetherDto": { city: { required: true, type: () => String } } }], [import("./subscription/dto/update-subscription.dto"), { "UpdateSubscriptionDto": {} }]], "controllers": [[import("./subscription/subscription.controller"), { "SubscriptionController": { "subscribe": {}, "confirmEmail": {}, "findOne": {} } }], [import("./wether/wether.controller"), { "WetherController": { "getWether": {} } }]] } };
+};
